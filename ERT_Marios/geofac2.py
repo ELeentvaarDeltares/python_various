@@ -74,13 +74,11 @@ def geofac2(coords):
     
     gf=2*np.pi/gf
     gf2=4*np.pi/gf2
-    
+
     return gf,gf2
     
     
-    
-    
-    
+
     
 def dis_point(p1,p2):
     dis=np.sqrt(np.power(p1[:,0]-p2[:,0],2) + np.power(p1[:,1]-p2[:,1],2) + np.power(p1[:,2]-p2[:,2],2) )

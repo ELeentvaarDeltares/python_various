@@ -23,7 +23,7 @@ def read_mpt_data(filename):
     file.close()
     first_elec=0
     first_meas=0
-    
+
     for i in range(0,len(lines_all)):
         lines = lines_all[i]
         if lines[0:11]=='#elec_start':
@@ -36,10 +36,11 @@ def read_mpt_data(filename):
             while lines[0:9]!='#elec_end':
                 tmp=lines[7:].replace(',','.')
                 lines=lines[:7]+tmp
-                # print(lines)
+          
                 tmp=lines.replace(',',' ')
+
                 tmp=np.loadtxt(StringIO(tmp))
-                
+         
                 if first_elec==0:
                     elec=np.c_[tmp[1],tmp[2],tmp[3],tmp[4]]
                     first_elec=1
@@ -76,11 +77,9 @@ def read_mpt_data(filename):
                    
                    tmp=tmp.replace('Error_Zero_Current','00')
                    tmp=tmp.replace('Raw_Voltages:','00')
-    
                    
-                   
-                   
-    
+                   tmp = tmp.replace('_','.')
+              
                    tmp=np.loadtxt(StringIO(tmp))
                    
                    if len(tmp)<23:

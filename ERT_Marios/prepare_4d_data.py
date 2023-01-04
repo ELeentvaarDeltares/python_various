@@ -60,15 +60,14 @@ def sel_elec(data,first,last):
 
 
 #yt=glob.glob(r".\raw\sort\*.data")
-yt = glob.glob(r"P:\11208018-016-urban-geophysics\4. Data\ERT\T3-Warm_right\*.data")
+yt = glob.glob(r"P:\11208018-016-urban-geophysics\4. Data\ERT\T3-Warm_left\*.data")
 
 # # # yt=yt[0:244]
 # yt=yt[-1]
 for i in range(0,len(yt)):
     
     data,elec=read_mpt_data(yt[i])
-    
-    print(np.shape(data[:,5]), yt[i])
+
     if i==0:
         out=data[:,5]
     else:
@@ -84,6 +83,7 @@ new_elec=elec[:,1:]
 
 
 #fix two missing elec
+
 new_elec=np.r_[
     elec[:31,:],
     np.c_[32,7.75,0,0],
@@ -92,6 +92,7 @@ new_elec=np.r_[
     elec[62:,:]]
 
 new_elec=new_elec[:,1:]
+
 
 # out=np.load('out.npy')        
 # data=np.load('data.npy')     
@@ -472,12 +473,12 @@ def moving_average(x, w):
 # tt[:,1]=tt[:,1]-32 
 # tt[:,2]=tt[:,2]-32 
 # tt[:,3]=tt[:,3]-32 
-   
+'''
 for i in range(0,out.shape[1]):
    
     iiii=np.where(out[d1,i]>-np.inf)[0]
     tt=np.c_[data[d1[iiii],:4],out[d1[iiii],i]]
-    make_pyg_3d('C:\\Users\\leentvaa\\python_various\\ERT_Marios\\pyg\\lin1_%04d.pyg'%i, new_elec[:32,:], tt)
+    make_pyg_3d('E:\\Foil2022\\Foil detection 5 cm\\lin1_%04d.pyg'%i, new_elec[:32,:], tt)
     
     iiii=np.where(out[d2,0]>-np.inf)[0]
     tt=np.c_[data[d2[iiii],:4],out[d2[iiii],i]]
@@ -486,7 +487,7 @@ for i in range(0,out.shape[1]):
     tt[:,2]=tt[:,2]-32 
     tt[:,3]=tt[:,3]-32    
    
-    make_pyg_3d('C:\\Users\\leentvaa\\python_various\\ERT_Marios\\pyg\\lin2_%04d.pyg'%i, new_elec[:32,:], tt)
+    make_pyg_3d('E:\\Foil2022\\Foil detection 5 cm\\lin2_%04d.pyg'%i, new_elec[:32,:], tt)
     
     
     iiii=np.where(out[d3,0]>-np.inf)[0]
@@ -495,7 +496,7 @@ for i in range(0,out.shape[1]):
     tt[:,1]=tt[:,1]-64 
     tt[:,2]=tt[:,2]-64 
     tt[:,3]=tt[:,3]-64   
-    make_pyg_3d('C:\\Users\\leentvaa\\python_various\\ERT_Marios\\pyg\\lin3_%04d.pyg'%i, new_elec[:32,:], tt)
+    make_pyg_3d('E:\\Foil2022\\Foil detection 5 cm\\lin3_%04d.pyg'%i, new_elec[:32,:], tt)
 
 
 
@@ -506,6 +507,6 @@ for i in range(0,out.shape[1]):
     tt[:,1]=tt[:,1]-96 
     tt[:,2]=tt[:,2]-96 
     tt[:,3]=tt[:,3]-96  
-    make_pyg_3d('C:\\Users\\leentvaa\\python_various\\ERT_Marios\\pyg\\lin4_%04d.pyg'%i, new_elec[:32,:], tt)
-
+    make_pyg_3d('E:\\Foil2022\\Foil detection 5 cm\\lin4_%04d.pyg'%i, new_elec[:32,:], tt)
+'''
     

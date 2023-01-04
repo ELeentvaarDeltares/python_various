@@ -67,7 +67,7 @@ def sel_elec(data,first,last):
 
 # Import .data files -- these data files should be the same size!!
 # TODO: Make function that automatically descard data files with zeros or those that are terminated early
-yt = glob.glob(r"P:\11208018-016-urban-geophysics\4. Data\ERT\T4-Cold_right\*.data")
+yt = glob.glob(r"P:\11208018-016-urban-geophysics\4. Data\ERT\T3-Warm_left\*.data")
 
 # Loop over files
 # TODO: make if statement for when there is only one file. 
@@ -476,7 +476,7 @@ def moving_average(x, w):
 
 # For every data line
 # in the make pyg file, there is new elec, these are the locations of the electrodes. in tt are the abmn and resistivity files. 
-
+'''
 for i in range(0,out.shape[1]):
     iiii = np.where(out[d1,i]>-np.inf)[0]  #Find data that is not infinity
     tt = np.c_[data[d1[iiii],:4],out[d1[iiii],i]] # merge data with 
@@ -513,4 +513,4 @@ for i in range(0,out.shape[1]):
     
     make_pyg_3d('C:\\Users\\leentvaa\\python_various\\ERT_Marios\\pyg\\lin4_%04d.pyg'%i, new_elec[:32,:], tt)
 
-    
+'''

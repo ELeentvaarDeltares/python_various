@@ -74,7 +74,7 @@ yt = glob.glob(r"P:\11208018-016-urban-geophysics\4. Data\ERT\T3-Warm_left\*.dat
 for i in range(0,len(yt)): 
     # Read mpt data module
     data, elec = read_mpt_data(yt[i])
-    
+    #elec is wrong most of the times at 3D
     if i==0: # For first file
         out=data[:,5]
     else: # Add other files to the out file
